@@ -1,133 +1,147 @@
-# Import the 'RangeGenerator' class from the 'RangeGenerator' module
+# We import the RangeGenerator class so we can use its method to 
+# generate the rang eof integers from start value to end.
 from RangeGenerator import RangeGenerator
 
-# Import the 'math' module, which provides access to mathematical functions
+# Math module contains methods related to mathematics, here we use it to calculate
+# square root of a value and get the maximum value out of the range.
 import math
 
-# Define a class named 'PrimeAlgorithms'
+# PrimeAlgorithms class contains all the methods for algorithms that can be used to filter
+# the prime numbers from a given range.
 class PrimeAlgorithms:
 
-    # Initialize the 'PrimeAlgorithms' class
-    def __init__(self):
-        # Create an instance of 'RangeGenerator' and assign it to the '_range' attribute
-        self._range = RangeGenerator()
-
-        # Define a default message to be returned when no primes are found
-        self._message = "No Prime Values present in the range"
-
-    # Define a method 'trialDivision' that takes a single argument 'rangeSet'
-    def trialDivision(self, rangeSet):
+    # trialDivision method uses the trial division algorithm to filter
+    # the prime numbers from a given range.
+    @staticmethod
+    def trialDivision(rangeSet):
         try:
-            # Initialize an empty list '_primes' to store prime numbers
+            # _primes list is initialized that will store the prime numbers from the range and will be returned
+            # as result.
             _primes = []
 
-            # Generate a range of values from 'rangeSet' using the 'generateRange' method of '_range'
-            _rangeValues = self._range.generateRange(rangeSet)
+            # _rangValues contains the range of integers that are generated using RangeGenerator's
+            # generateRange method which accepts a set of start and end value.
+            _rangeValues = RangeGenerator.generateRange(rangeSet)
 
-            # Remove 0 and 1 from the set of range values since they are not prime
+            # Remove 0 and 1 from the set of range values since they are not prime.
             _rangeValues.discard(0)
             _rangeValues.discard(1)
 
-            # Iterate over each value in '_rangeValues'
+            # We iterate over the generated integer range.
             for prime in _rangeValues:
-                # Iterate from 2 to the square root of 'prime' to check for divisors
+                # Iterate from 2 to the square root of the current element(prime) to check for divisors.
                 for i in range(2, int(math.sqrt(prime)) + 1):
-                    # If 'prime' is divisible by 'i', it is not a prime number
+                    # If the current element is divisble by i it is not prime.
                     if prime % i == 0:
-                        # Exit the inner loop if a divisor is found
+                        # We break the current interation of the inner loop 
+                        # (moving on to the next element in the integer range).
                         break
                 else:
-                    # If no divisor is found, 'prime' is a prime number
-                    # Add 'prime' to the '_primes' list
+                    # If no divisor is found we add the current element to the 
+                    # _primes list.
                     _primes.append(prime)
 
-            # Return the list of primes if it's not empty; otherwise, return the default message
-            return _primes if _primes else self._message
+            # Return the list of primes if it's not empty; otherwise, return the default message.
+            return _primes if _primes else "No Prime Values present in the range"
 
-        # Handle any exceptions that occur during the process
         except Exception as e:
-            # Return an error message with details about the exception
+            # Here we handle any other exception that may occur. We print a 
+            # general message and the exception thrown for details.
             return f"An error occurred during trial division: {e}"
 
-    # Define a method 'enhancedTrialDivision' that takes a single argument 'rangeSet'
-    def enhancedTrialDivision(self, rangeSet):
+    # enhancedTrialDivision method uses the enhanced trial division algorithm to filter
+    # the prime numbers from a given range.
+    @staticmethod
+    def enhancedTrialDivision(rangeSet):
         try:
-            # Initialize an empty list '_primes' to store prime numbers
+            # _primes list is initialized that will store the prime numbers from the range and will be returned
+            # as result.
             _primes = []
 
-            # Generate a range of values from 'rangeSet' using the 'generateRange' method of '_range'
-            _rangeValues = self._range.generateRange(rangeSet)
+            # _rangValues contains the range of integers that are generated using RangeGenerator's
+            # generateRange method which accepts a set of start and end value.
+            _rangeValues = RangeGenerator.generateRange(rangeSet)
 
-            # Remove 0 and 1 from the set of range values since they are not prime
+            # Remove 0 and 1 from the set of range values since they are not prime.
             _rangeValues.discard(0)
             _rangeValues.discard(1)
 
-            # Iterate over the first few known prime numbers (2, 3, 5)
+            # We iterate through the basic primes.
             for prime in [2, 3, 5]:
-                # If 'prime' is in '_rangeValues'
+                # Check f the current element is present in the integer range.
                 if prime in _rangeValues:
-                    # Add 'prime' to the '_primes' list
+                    # If the current element is present in the integer range add it to primes list.
                     _primes.append(prime)
 
-                # If '_rangeValues' is not empty
+                # We check if the integer range still has values (if an iteration has already been
+                # conducted and the list is empty) to avoid exceptions.
                 if _rangeValues:
-                    # Remove multiples of 'prime' from '_rangeValues'
+                    # We remove the basic primes and their multiples from the list.
                     _rangeValues.difference_update(set(range(prime, max(_rangeValues) + 1, prime)))
                 else:
-                    # Return the default message if no values are left in '_rangeValues'
-                    return self._message
+                    # If the range has already been cleared resturn default message.
+                    return "No Prime Values present in the range"
 
-            # Iterate over the remaining values in '_rangeValues'
+            # We iterate over the remaining values of the generated integer range.
             for prime in _rangeValues:
-                # Iterate from 2 to the square root of 'prime' to check for divisors
+                # Iterate from 2 to the square root of the current element(prime) to check for divisors.
                 for i in range(2, int(math.sqrt(prime)) + 1):
-                    # If 'prime' is divisible by 'i', it is not a prime number
+                    # If the current element is divisble by i it is not prime.
                     if prime % i == 0:
-                        # Exit the inner loop if a divisor is found
+                        # We break the current interation of the inner loop 
+                        # (moving on to the next element in the integer range).
                         break
                 else:
-                    # If no divisor is found, 'prime' is a prime number
-                    # Add 'prime' to the '_primes' list
+                    # If no divisor is found we add the current element to the 
+                    # _primes list.
                     _primes.append(prime)
 
-            # Return the list of primes if it's not empty; otherwise, return the default message
-            return _primes if _primes else self._message
+            # Return the list of primes if it's not empty; otherwise, return the default message.
+            return _primes if _primes else "No Prime Values present in the range"
 
-        # Handle any exceptions that occur during the process
         except Exception as e:
-            # Return an error message with details about the exception
+            # Here we handle any other exception that may occur. We print a 
+            # general message and the exception thrown for details.
             return f"An error occurred during enhanced trial division: {e}"
 
-    # Define a method 'eratosthenesSieve' that takes a single argument 'rangeSet'
-    def eratosthenesSieve(self, rangeSet):
+    # eratosthenesSieve method uses the sieve of eratosthenes algorithm to filter
+    # the prime numbers from a given range.
+    @staticmethod
+    def eratosthenesSieve(rangeSet):
         try:
-            # Generate a range of values from 'rangeSet' using the 'generateRange' method of '_range'
-            _rangeValues = self._range.generateRange(rangeSet)
+            # _rangValues contains the range of integers that are generated using RangeGenerator's
+            # generateRange method which accepts a set of start and end value.
+            _rangeValues = RangeGenerator.generateRange(rangeSet)
 
             # Determine the maximum number in the generated range
             _maxNum = max(_rangeValues)
 
-            # Create a list '_isPrime' to track prime status, initialized to 'True'
+            # _isPrime boolean list is created to keep track of prime values
+            # currently all values are true.
             _isPrime = [True] * (_maxNum + 1)
 
-            # Set index 0 and 1 to 'False' since 0 and 1 are not prime numbers
+            # Set index 0 and 1 to 'False' since 0 and 1 are not prime numbers.
             _isPrime[0] = _isPrime[1] = False
 
-            # Iterate over each number from 2 to the square root of '_maxNum'
+            # We iterate over each number from 2 to the (square root + 1) of maximum number
+            # in the generated range.
             for prime in range(2, int(math.sqrt(_maxNum)) + 1):
-                # If the number is marked as prime
+                # Check if the element in the current iteration is set as prime  
                 if _isPrime[prime]:
-                    # Mark all multiples of 'prime' as 'False' starting from 'prime^2'
+                    # We mark all the multiples of the element from the current iteration as not prime
+                    # (loop starts from the square of the element to the maximum number with the current element
+                    # as the difference)
                     for i in range(prime * prime, _maxNum + 1, prime):
                         _isPrime[i] = False
 
-            # Create a set of prime numbers from '_rangeValues' using the '_isPrime' list
-            _primes = {num for num in _rangeValues if _isPrime[num]}
+            # Now we create a prime integer list from the values that are true in _isPrime
+            # boolean list. 
+            _primes = [num for num in _rangeValues if _isPrime[num]]
 
             # Return the set of primes if it's not empty; otherwise, return the default message
-            return _primes if _primes else self._message
+            return _primes if _primes else "No Prime Values present in the range"
 
-        # Handle any exceptions that occur during the process
         except Exception as e:
-            # Return an error message with details about the exception
+            # Here we handle any other exception that may occur. We print a 
+            # general message and the exception thrown for details.
             return f"An error occurred during Sieve of Eratosthenes: {e}"

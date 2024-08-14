@@ -1,70 +1,73 @@
-# Define a class named 'InputValidator'
+# InputValidator class will contain the methods that will validate 
+# the input given by the user for range and algorithm.
 class InputValidator:
     
-    # Define a static method 'validateRangeInput' that takes a single argument 'prompt'
+    # validateRangeInput validates the user input for range generation, it is a static method 
+    # we can call without creating an instance of the class.
     @staticmethod
     def validateRangeInput(prompt):
-        # Start an infinite loop to repeatedly prompt the user for input until valid
+        # We start an infinite loop so the program can only progress when it 
+        # gets a valid input.
         while True:
-            # Attempt to execute the following block of code
             try:
-                # Prompt the user for input and convert the input to an integer
+                # We prompt the user for an input, and convert the input to integer type
+                # (try to do it wong input raises exception)
                 value = int(input(prompt))
 
-                # Check if the entered value is negative
+                # As prime numbers are positive integers we check that the range 
+                # endpoints are positive.
                 if value < 0:
-                    # Display an error message if the value is negative and continue the loop
+                    # If the value is negative display error message and prompt the user again.
                     print("The value must be non-negative. Please try again.")
                 else:
-                    # If the value is non-negative, return the value and exit the loop
+                    # If the value is non-negative integer, raising no exception we return it.
                     return value
-                
-            # Handle the case where the input is not a valid integer
+
             except ValueError:
-                # Handle the case where the input is not a valid integer
-                # Display an error message indicating that the input is invalid
+                # Here we handle the exception when the user input any value that is of any 
+                # other type than integer. (Checking if the Value is of the correct type).
                 print("Invalid input. Please enter a valid integer.")
             
-            # Handle any other unexpected exceptions
             except Exception as e:
-                # Handle any other unexpected exceptions
-                # Display a general error message with details about the exception
+                # Here we handle any other exception that may occur. We print a 
+                # general message and the exception thrown for details.
                 print(f"An error occurred during range validation: {e}")
 
-    # Define a static method 'validateMenuInput' that takes a 'prompt' and a list of 'options'
+    # validateMenuInput validates the user input for algorithm selection, it is a static method 
+    # we can call without creating an instance of the class.
     @staticmethod
     def validateMenuInput(prompt, options):
-        # Start an infinite loop to repeatedly prompt the user for input until valid
+        # We start an infinite loop so the program can only progress when it 
+        # gets a valid input.
         while True:
-            # Attempt to execute the following block of code
             try:
-                # Print the provided prompt message
+                # We print a part of the prompt we'll ask the user.
                 print(prompt)
-
-                # Enumerate through the 'options' list, starting the index at 1
+                # We loop over the list received using enumerate so we get the index as well as value
+                # we start at the index 1 not 0.
                 for i, option in enumerate(options, 1):
-                    # Print each option with a corresponding number
+                    # Print the index and value of the current element the loop is pointing to.
                     print(f"{i}. {option}")
 
-                # Prompt the user to select an option and convert the input to an integer
+                # We prompt the user for an input, and convert the input to integer type
+                # (try to do it wong input raises exception)
                 value = int(input("Please select an option: "))
 
-                # Check if the entered value is within the valid range of options
+                # Here we check if the user input corresponds to any available index.
                 if 1 <= value <= len(options):
-                    # If the value is valid, return the value and exit the loop
+                    # If the input corresponds to available index, then we return the value.
                     return value
                 else:
-                    # If the value is out of range, display an error message and continue the loop
+                    # If the input does not corresponds to any available index, we print a message 
+                    # to tell the user so and prompt the user again for the input.
                     print(f"The value must be in the range of 1 to {len(options)}. Please try again.")
     
-            # Handle the case where the input is not a valid integer
             except ValueError:
-                # Handle the case where the input is not a valid integer
-                # Display an error message indicating that the input is invalid
+                # Here we handle the exception when the user input any value that is of any 
+                # other type than integer. (Checking if the Value is of the correct type).
                 print("Invalid input. Please enter a valid integer.")
             
-            # Handle any other unexpected exceptions
             except Exception as e:
-                # Handle any other unexpected exceptions
-                # Display a general error message with details about the exception
+                # Here we handle any other exception that may occur. We print a 
+                # general message and the exception thrown for details.
                 print(f"An error occurred during menu validation: {e}")

@@ -1,28 +1,32 @@
-# Define a class named 'RangeGenerator'.
+# RangeGenerator class will contain the method that helps us
+# generate range of integers according to input.
 class RangeGenerator:
 
-    # Define a method 'generateRange' that takes a single argument 'rangeSet'.
-    # This method is responsible for generating a set of integers from the given range.
-    def generateRange(self, rangeSet):
-        
+    # The generateRange is responsible for generating a range of integers
+    # according to input, it is a static method we can call without creating an instance of the class.
+    @staticmethod
+    def generateRange(rangeSet):
         try:
-            # Unpack 'rangeSet' into 'start' and 'end'. 
-            # 'rangeSet' is expected to be a tuple or list containing two integers.
+            # rangeSet is the tuple or list that contains the start and the 
+            # end of the range of integers that will be generated.
             start, end = rangeSet
 
-            # Generate a range of integers from 'start' to 'end' (inclusive), 
-            # convert it to a set, and return the result.
+            # We generate a range of integers from start to end(including end)
+            # and is returned in the form of set.
             return set(range(start, end + 1))
         
         except TypeError:
-            # Handle the case where 'rangeSet' is not a tuple or list, or it doesn't contain exactly two elements.
-            # Print an error message indicating that the input was invalid.
-            print("Invalid input: rangeSet must be a tuple or list of two integers.")
+            # Here we handle the exception where the rangeSet is not a tuple or list 
+            # (Varaible is not of the Type required).
+            print("Invalid input: rangeSet must be a tuple or list.")
+
+            # Return an empty set in case of an exception.
+            return set()
         
         except Exception as e:
-            # Handle any other type of exception that occurs during range generation.
-            # Print a general error message along with the specific exception message.
+            # Here we handle any other exception that may occur. We print a 
+            # general message and the exception thrown for details.
             print(f"An unexpected error occurred during range generation: {e}")
             
-            # Return an empty set in case of an error.
+            # Return an empty set in case of an exception.
             return set()
