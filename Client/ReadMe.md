@@ -84,7 +84,7 @@ pip install -r requirements.txt
 Execute the main program:
 
 ```bash
-python PrimeNumberGenerator.py
+python -m Client.PrimeNumberGenerator
 ```
 
 You will be prompted to select a prime generation algorithm and input a range. The program will output the prime numbers within the specified range.
@@ -94,5 +94,5 @@ You will be prompted to select a prime generation algorithm and input a range. T
 Unit tests are included to verify the functionality of each module. To run the tests:
 
 ```bash
-python -m unittest UnitTests.py 
+python -m unittest Client.UnitTests 
 ```

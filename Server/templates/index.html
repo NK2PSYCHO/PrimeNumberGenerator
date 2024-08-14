@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .result-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .result-section {
+            margin-bottom: 15px;
+        }
+        .result-section h2 {
+            margin-top: 0;
+        }
+        .result-section p {
+            font-size: 16px;
+            color: #333;
+        }
+        .result-section code {
+            display: block;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Prime Number Results</h1>
+        <div class="result-section">
+            <h2>Selected Algorithm</h2>
+            <p>{{ algorithm }}</p>
+        </div>
+        <div class="result-section">
+            <h2>Generated Range</h2>
+            <code>{{ range_result }}</code>
+        </div>
+        <div class="result-section">
+            <h2>Prime Numbers</h2>
+            <code>{{ prime_numbers }}</code>
+        </div>
+        <a href="{{ url_for('main.home') }}">Back to Home</a>
+    </div>
+</body>
+</html>

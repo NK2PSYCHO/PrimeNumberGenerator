@@ -1,10 +1,10 @@
 # We import the UserInput class so we can call the apt methods to 
 # set and get the values of the required attributes.
-from UserInput import UserInput
+from Client.UserInput import UserInput
 
 # We import the PrimeAlgorithms class so the apt method containing the algorithm
 # of the user's selection can be called to get prime numbers in a range.
-from PrimeAlgorithms import PrimeAlgorithms
+from Client.PrimeAlgorithms import PrimeAlgorithms
 
 # PrimeNumberGenerator class contains the main method of the program.
 class PrimeNumberGenerator():

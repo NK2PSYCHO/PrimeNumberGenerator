@@ -1,6 +1,6 @@
 # We import the InputValidator class to use the satitc validator functions
 # that will be used to validate range input and menu input.
-from InputValidator import InputValidator
+from Client.InputValidator import InputValidator
 
 # UserInput class will contain the methods that will be used to handle User input
 # for range input and menu input.

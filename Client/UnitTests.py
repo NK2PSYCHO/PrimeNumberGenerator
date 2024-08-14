@@ -11,19 +11,19 @@ from io import StringIO
 from unittest.mock import patch
 
 # InputValidator is imported to write unit tests for all methods in this class.
-from InputValidator import InputValidator
+from Client.InputValidator import InputValidator
 
 # UserInput is imported to write unit test for public set and get methods.
-from UserInput import UserInput
+from Client.UserInput import UserInput
 
 # PrimeAlgorithms is imported to write unit tests for all methods in this class.
-from PrimeAlgorithms import PrimeAlgorithms
+from Client.PrimeAlgorithms import PrimeAlgorithms
 
 # PrimeAlgorithms is imported to write unit tests for all methods in this class.
-from RangeGenerator import RangeGenerator
+from Client.RangeGenerator import RangeGenerator
 
 # PrimeAlgorithms is imported to write unit tests for all methods in this class.
-from PrimeNumberGenerator import PrimeNumberGenerator
+from Client.PrimeNumberGenerator import PrimeNumberGenerator
 
 # This class contains test cases related to InputValidator
 class TestInputValidator(unittest.TestCase):

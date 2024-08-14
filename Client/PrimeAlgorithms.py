@@ -1,6 +1,6 @@
 # We import the RangeGenerator class so we can use its method to 
 # generate the rang eof integers from start value to end.
-from RangeGenerator import RangeGenerator
+from Client.RangeGenerator import RangeGenerator
 
 # Math module contains methods related to mathematics, here we use it to calculate
 # square root of a value and get the maximum value out of the range.
