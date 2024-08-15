@@ -112,6 +112,15 @@ python -m Server.app
 
 Open a web browser and navigate to `http://127.0.0.1:5000/` to access the application.
 
+Or
+
+Use gunicorn
+
+```bash
+gunicorn -w 4 -b 0.0.0.0:8000 Server.app:app  
+```
+Open a web browser and go to `http://0.0.0.0:8000` to access the application.
+
 ### Running Unit Tests
 
 To run the unit tests for the entire project:
