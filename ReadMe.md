@@ -121,6 +121,15 @@ gunicorn -w 4 -b 0.0.0.0:8000 Server.app:app
 ```
 Open a web browser and go to `http://0.0.0.0:8000` to access the application.
 
+**Extra**
+You can check the values stored in the table by accessing
+
+   `http://127.0.0.1:5000/values`
+
+   Or
+
+   `http://0.0.0.0:8000/values`
+
 ### Running Unit Tests
 
 To run the unit tests for the entire project:

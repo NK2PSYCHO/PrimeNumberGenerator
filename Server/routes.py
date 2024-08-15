@@ -135,10 +135,13 @@ def trialDivision():
         end = request.json.get('end')  # Get the end value from the request
         range_tuple = tuple(sorted((start, end)))  # Create a sorted tuple of the range
         prime_numbers = PrimeAlgorithms.trialDivision(range_tuple)  # Get prime numbers using the trialDivision algorithm
+
+        if isinstance(prime_numbers, str):  # Check if the result is an error message
+            return jsonify({"error": prime_numbers})  # Return the error message
         return jsonify(prime_numbers)  # Return the prime numbers as a JSON response
     except Exception as e:
         print(f"An error occurred in the trialDivision API: {e}")  # Print the error if one occurs
-        return jsonify({"error": "An error occurred while processing the request."})  # Return an error message
+        return jsonify({"error": "An error occurred while processing the request."})  # Return a generic error message
 
 @bluePrint.route('/api/enhancedTrialDivision', methods=['POST'])
 def enhancedTrialDivision():
@@ -148,10 +151,13 @@ def enhancedTrialDivision():
         end = request.json.get('end')  # Get the end value from the request
         range_tuple = tuple(sorted((start, end)))  # Create a sorted tuple of the range
         prime_numbers = PrimeAlgorithms.enhancedTrialDivision(range_tuple)  # Get prime numbers using the enhancedTrialDivision algorithm
+
+        if isinstance(prime_numbers, str):  # Check if the result is an error message
+            return jsonify({"error": prime_numbers})  # Return the error message
         return jsonify(prime_numbers)  # Return the prime numbers as a JSON response
     except Exception as e:
         print(f"An error occurred in the enhancedTrialDivision API: {e}")  # Print the error if one occurs
-        return jsonify({"error": "An error occurred while processing the request."})  # Return an error message
+        return jsonify({"error": "An error occurred while processing the request."})  # Return a generic error message
 
 @bluePrint.route('/api/eratosthenesSieve', methods=['POST'])
 def eratosthenesSieve():
@@ -161,10 +167,13 @@ def eratosthenesSieve():
         end = request.json.get('end')  # Get the end value from the request
         range_tuple = tuple(sorted((start, end)))  # Create a sorted tuple of the range
         prime_numbers = PrimeAlgorithms.eratosthenesSieve(range_tuple)  # Get prime numbers using the eratosthenesSieve algorithm
+
+        if isinstance(prime_numbers, str):  # Check if the result is an error message
+            return jsonify({"error": prime_numbers})  # Return the error message
         return jsonify(prime_numbers)  # Return the prime numbers as a JSON response
     except Exception as e:
         print(f"An error occurred in the eratosthenesSieve API: {e}")  # Print the error if one occurs
-        return jsonify({"error": "An error occurred while processing the request."})  # Return an error message
+        return jsonify({"error": "An error occurred while processing the request."})  # Return a generic error message
 
 @bluePrint.route('/api/getOperations', methods=['GET'])
 def getOperations():

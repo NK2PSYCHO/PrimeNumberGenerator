@@ -111,3 +111,11 @@ Open a web browser and go to `http://0.0.0.0:8000` to access the application.
 3. **Submit**:  
    Click the submit button. The results, including the selected range and prime numbers, will be displayed on the results page.
 
+4. **Check Values in Table**
+   You can check the values stored in the table by accessing
+
+   `http://127.0.0.1:5000/values`
+
+   Or
+
+   `http://0.0.0.0:8000/values`
